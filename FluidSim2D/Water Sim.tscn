@@ -7,7 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://FluidSim2D/water_particle.png" type="Texture" id=6]
 [ext_resource path="res://slider.tscn" type="PackedScene" id=7]
-[ext_resource path="res://FluidSim2D/label.gd" type="Script" id=8]
+[ext_resource path="res://Goal.tscn" type="PackedScene" id=8]
 
 [sub_resource type="OpenSimplexNoise" id=3]
 octaves = 9
@@ -61,7 +61,7 @@ texture = ExtResource( 5 )
 [node name="Node2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( -547, -630 )
 rotation = -0.0067389
-scale = Vector2( 8.32405, 7.39632 )
+scale = Vector2( 4.65389, 5.64554 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -75,7 +75,6 @@ PHYSICS FPS: 0"
 script = ExtResource( 1 )
 adjust_physics_update = true
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 14.0
-script = ExtResource( 8 )
+[node name="Goal" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1428, -784 )
+scale = Vector2( -2.66364, 4.94228 )

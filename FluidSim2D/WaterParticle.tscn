@@ -10,7 +10,7 @@ bounce = 0.1
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.12311
 
-[node name="WaterParticle" type="RigidBody2D"]
+[node name="WaterParticle" type="RigidBody2D" groups=["Water"]]
 position = Vector2( 313, 44 )
 collision_layer = 15
 collision_mask = 15
@@ -19,10 +19,10 @@ physics_material_override = SubResource( 2 )
 gravity_scale = 2.0
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Water"]]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." groups=["Water"]]
 self_modulate = Color( 1, 0, 1, 1 )
 light_mask = 2
 scale = Vector2( 0.250001, 0.25 )
