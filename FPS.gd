@@ -11,5 +11,5 @@ func _process(delta):
 	physics_fps = Engine.iterations_per_second
 	particles = Globals.total_water_particles
 	text = "FPS: " + str(fps) + "\nPhysics FPS: " + str(physics_fps)\
-		+ "\nParticles: " + str(particles)+"\nFAILED, GOTTA LEARN C++ :'/"
+		+ "\nParticles: " + str(particles)+"\nVelocity: " + str(Globals.velocity) 
 

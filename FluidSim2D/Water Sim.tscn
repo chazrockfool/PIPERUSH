@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://FPS.gd" type="Script" id=1]
 [ext_resource path="res://FluidSim2D/WaterGenPhysicsServer.gd" type="Script" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://Water_View_Shader.gdshader" type="Shader" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://FluidSim2D/water_particle.png" type="Texture" id=6]
-[ext_resource path="res://FluidSim2D/MouseJig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://slider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://FluidSim2D/label.gd" type="Script" id=8]
 
 [sub_resource type="OpenSimplexNoise" id=3]
 octaves = 9
@@ -49,13 +50,18 @@ max_water_particles = 800
 light_mask = 2
 position = Vector2( 535, 234 )
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 3, 3 )
 
 [node name="WaterColor" type="Sprite" parent="."]
 material = SubResource( 2 )
 position = Vector2( 536, 181 )
 scale = Vector2( 45.6875, 39.875 )
 texture = ExtResource( 5 )
+
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( -547, -630 )
+rotation = -0.0067389
+scale = Vector2( 8.32405, 7.39632 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -69,4 +75,7 @@ PHYSICS FPS: 0"
 script = ExtResource( 1 )
 adjust_physics_update = true
 
-[node name="MouseJig" parent="." instance=ExtResource( 7 )]
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+script = ExtResource( 8 )
