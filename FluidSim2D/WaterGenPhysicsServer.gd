@@ -30,7 +30,7 @@ func create_particle():
 	ps.body_set_param(water_col,Physics2DServer.BODY_PARAM_MASS,3.0)
 	ps.body_set_param(water_col,Physics2DServer.BODY_PARAM_GRAVITY_SCALE,10.0)
 	ps.body_set_state(water_col,PhysicsServer.BODY_STATE_TRANSFORM,trans)
-	ps.body_apply_central_impulse(water_col,get_local_mouse_position())
+	ps.body_apply_central_impulse(water_col,Vector2(Globals.velo, 0))
 	#Visual
 	#create canvas item(all 2D objects are canvas items)
 	var water_particle = vs.canvas_item_create()
