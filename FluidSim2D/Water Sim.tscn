@@ -1,12 +1,23 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=11 format=2]
+=======
+[gd_scene load_steps=14 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://FPS.gd" type="Script" id=1]
 [ext_resource path="res://FluidSim2D/WaterGenPhysicsServer.gd" type="Script" id=2]
-[ext_resource path="res://FluidSim2D/Container.gd" type="Script" id=3]
+[ext_resource path="res://FluidSim2D/Pipe1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Water_View_Shader.gdshader" type="Shader" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://FluidSim2D/water_particle.png" type="Texture" id=6]
+<<<<<<< Updated upstream
 [ext_resource path="res://FluidSim2D/MouseJig.tscn" type="PackedScene" id=7]
+=======
+[ext_resource path="res://slider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Goal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FluidSim2D/Pipe2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://FluidSim2D/Water Sim.gd" type="Script" id=11]
+>>>>>>> Stashed changes
 
 [sub_resource type="OpenSimplexNoise" id=3]
 octaves = 9
@@ -28,16 +39,10 @@ shader_param/bubble_color = Color( 1, 1, 1, 1 )
 shader_param/noise = SubResource( 4 )
 
 [node name="Water Sim" type="Node2D"]
-
-[node name="Container" type="StaticBody2D" parent="."]
-position = Vector2( 164, 191 )
-script = ExtResource( 3 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Container"]
-polygon = PoolVector2Array( -166, -494, -90, -537, -81, -670, 14, -708, 75, -532, 98, -391, 314, -337, 472, -233, 273.477, -190.425, 172, -189, 137, 117, 391, 239, 395, 321, 107, 301, 111, 509, 273, 533, 341, 506, 432, 485, 483, 527, 528, 532, 631, 377, 614, 169, 409, 10, 573, -98, 658, -230, 573, -437, 762.306, -479.723, 794, -861, 1066, -880, 1087, -553, 1087, -259, 1125, 868, -160, 901 )
+script = ExtResource( 11 )
 
 [node name="WaterGen" type="Position2D" parent="."]
-position = Vector2( 587, -688 )
+position = Vector2( 61, -224 )
 script = ExtResource( 2 )
 __meta__ = {
 "_gizmo_extents_": 60.0
@@ -45,28 +50,71 @@ __meta__ = {
 particle_texture = ExtResource( 6 )
 max_water_particles = 800
 
+[node name="Sprite" type="Sprite" parent="WaterGen"]
+texture = ExtResource( 5 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 light_mask = 2
 position = Vector2( 535, 234 )
 current = true
+<<<<<<< Updated upstream
 zoom = Vector2( 2, 2 )
+=======
+>>>>>>> Stashed changes
 
 [node name="WaterColor" type="Sprite" parent="."]
 material = SubResource( 2 )
-position = Vector2( 536, 181 )
+position = Vector2( 3338, 404 )
 scale = Vector2( 45.6875, 39.875 )
 texture = ExtResource( 5 )
 
+<<<<<<< Updated upstream
+=======
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 57, 412 )
+scale = Vector2( 2, 2 )
+
+>>>>>>> Stashed changes
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
-margin_left = 43.0
-margin_top = 20.0
-margin_right = 137.0
-margin_bottom = 51.0
+margin_left = 20.0
+margin_top = 12.0
+margin_right = 114.0
+margin_bottom = 43.0
 text = "FPS: 0
 PHYSICS FPS: 0"
 script = ExtResource( 1 )
 adjust_physics_update = true
 
+<<<<<<< Updated upstream
 [node name="MouseJig" parent="." instance=ExtResource( 7 )]
+=======
+[node name="MouseJig" parent="." instance=ExtResource( 9 )]
+position = Vector2( 501, -218 )
+rotation = 3.14159
+
+[node name="MouseJig2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, -210 )
+
+[node name="Goal" parent="." instance=ExtResource( 8 )]
+position = Vector2( 921, 463 )
+scale = Vector2( -1.83202, 1.44043 )
+
+[node name="Pipe1" type="Button" parent="."]
+margin_left = 96.0
+margin_top = 561.0
+margin_right = 148.0
+margin_bottom = 581.0
+text = "Pipe 1"
+
+[node name="Pipe2" type="Button" parent="."]
+margin_left = 181.0
+margin_top = 560.0
+margin_right = 233.0
+margin_bottom = 580.0
+text = "Pipe 2"
+
+[connection signal="pressed" from="Pipe1" to="." method="_on_Pipe1_pressed"]
+[connection signal="pressed" from="Pipe2" to="." method="_on_Pipe2_pressed"]
+>>>>>>> Stashed changes

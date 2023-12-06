@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://FluidSim2D/Pipe1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FluidSim2D/Pipe2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://FluidSim2D/Water Sim.gd" type="Script" id=3]
+[ext_resource path="res://Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://FluidSim2D/WaterGenPhysicsServer.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://FluidSim2D/water_particle.png" type="Texture" id=7]
+[ext_resource path="res://Slider.tscn" type="PackedScene" id=8]
+
+[node name="WaterSlim" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511, 517 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="Pipe1" type="Button" parent="."]
+margin_left = -196.0
+margin_top = 1107.0
+margin_right = 85.0
+margin_bottom = 1263.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Pipe 1"
+
+[node name="Pipe2" type="Button" parent="."]
+margin_left = 115.0
+margin_top = 1105.0
+margin_right = 396.0
+margin_bottom = 1261.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Pipe 2"
+
+[node name="OBJ1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 26, -108 )
+
+[node name="OBJ2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 500, -51 )
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1091, 1013 )
+scale = Vector2( 2, 2 )
+
+[node name="Slider" parent="." instance=ExtResource( 8 )]
+position = Vector2( -175, 1010 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -149, -115 )
+script = ExtResource( 5 )
+particle_texture = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Position2D"]
+self_modulate = Color( 0.52549, 0.376471, 0.376471, 1 )
+texture = ExtResource( 6 )
+
+[connection signal="button_down" from="Pipe1" to="." method="_on_Pipe1_button_down"]
+[connection signal="button_down" from="Pipe2" to="." method="_on_Pipe2_button_down"]
